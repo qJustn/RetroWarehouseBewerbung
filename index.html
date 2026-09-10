@@ -6,26 +6,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Retro Warehouse | Jeff Jeremain</title>
+<title>Retro Warehouse | Bewerbung Lagerlogistiker</title>
 
 
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
 
 
-
 <style>
-
 
 :root{
 
---orange:#d95720;
---gold:#e5b45a;
---cream:#f2dfad;
---dark:#070b0e;
---blue:#07141d;
+--orange:#e05a1b;
+--red:#9e2418;
+--gold:#e8b85c;
+--cream:#f4dfad;
+--dark:#050708;
 
 }
-
 
 
 *{
@@ -35,7 +32,6 @@ padding:0;
 box-sizing:border-box;
 
 }
-
 
 
 html{
@@ -54,17 +50,22 @@ font-family:'Oswald',sans-serif;
 color:white;
 
 
+min-height:100vh;
+
+
+
 background-image:
 
 linear-gradient(
 
-rgba(3,6,8,.55),
+rgba(0,0,0,.32),
 
-rgba(3,6,8,.85)
+rgba(0,0,0,.65)
 
 ),
 
 url("lager-hintergrund.jpg");
+
 
 
 background-size:cover;
@@ -78,67 +79,59 @@ background-attachment:fixed;
 
 
 
-/* =====================
+/* ======================
    NAVIGATION
-===================== */
+====================== */
 
 
 nav{
 
 
-position:fixed;
+position:sticky;
 
 top:0;
-
-left:0;
-
-width:100%;
 
 z-index:100;
 
 
-padding:20px;
-
+padding:15px 20px;
 
 
 }
 
 
 
-.navbox{
+.navbar{
 
 
-max-width:1200px;
+max-width:1250px;
 
 margin:auto;
 
 
-background:rgba(0,0,0,.75);
+background:rgba(5,8,10,.85);
 
 
-border:1px solid rgba(255,255,255,.25);
+border:1px solid #ffffff33;
 
 
-border-radius:18px;
+border-radius:15px;
 
 
-padding:15px 30px;
+padding:12px 25px;
 
 
 display:flex;
 
+align-items:center;
 
 justify-content:space-between;
 
 
-align-items:center;
-
-
-backdrop-filter:blur(10px);
+backdrop-filter:blur(8px);
 
 
 }
-
 
 
 
@@ -147,13 +140,10 @@ backdrop-filter:blur(10px);
 
 font-family:'Anton';
 
-font-size:32px;
+font-size:30px;
 
 
 color:var(--orange);
-
-
-letter-spacing:1px;
 
 
 }
@@ -161,8 +151,7 @@ letter-spacing:1px;
 
 
 
-
-.nav-links a{
+.menu a{
 
 
 color:white;
@@ -170,7 +159,7 @@ color:white;
 text-decoration:none;
 
 
-margin-left:25px;
+margin-left:20px;
 
 
 font-weight:bold;
@@ -179,14 +168,14 @@ font-weight:bold;
 text-transform:uppercase;
 
 
-font-size:15px;
+font-size:14px;
 
 
 }
 
 
 
-.nav-links a:hover{
+.menu a:hover{
 
 
 color:var(--orange);
@@ -197,46 +186,28 @@ color:var(--orange);
 
 
 
-
-/* =====================
-   HERO
-===================== */
-
+/* ======================
+   FLYER HEADER
+====================== */
 
 
-.hero{
+
+.flyer{
 
 
-min-height:700px;
+max-width:1200px;
+
+margin:20px auto 0;
 
 
-padding-top:150px;
-
-
-display:flex;
-
-
-justify-content:center;
-
-
-align-items:center;
+padding:30px;
 
 
 text-align:center;
 
 
-
 }
 
-
-
-.hero-content{
-
-
-max-width:1000px;
-
-
-}
 
 
 
@@ -249,10 +220,10 @@ display:inline-block;
 background:var(--orange);
 
 
-padding:12px 30px;
+padding:10px 30px;
 
 
-border-radius:50px;
+border-radius:40px;
 
 
 font-weight:bold;
@@ -264,7 +235,9 @@ letter-spacing:3px;
 text-transform:uppercase;
 
 
-box-shadow:0 0 25px #d9572055;
+box-shadow:
+
+0 0 25px #e05a1b88;
 
 
 }
@@ -272,24 +245,22 @@ box-shadow:0 0 25px #d9572055;
 
 
 
-
-.hero h1{
+.flyer h1{
 
 
 font-family:'Anton';
 
 
-font-size:clamp(70px,10vw,140px);
+font-size:clamp(45px,7vw,90px);
 
 
-line-height:.85;
+margin-top:20px;
 
 
-margin-top:35px;
+line-height:.9;
 
 
 text-transform:uppercase;
-
 
 
 color:var(--cream);
@@ -298,9 +269,9 @@ color:var(--cream);
 text-shadow:
 
 
-5px 5px #000,
+4px 4px #000,
 
-10px 10px #8d2817;
+8px 8px var(--red);
 
 
 
@@ -308,7 +279,7 @@ text-shadow:
 
 
 
-.hero h1 span{
+.flyer h1 span{
 
 
 color:var(--orange);
@@ -319,19 +290,19 @@ color:var(--orange);
 
 
 
-.hero p{
+.flyer p{
 
 
-font-size:28px;
+font-size:22px;
 
 
-margin-top:30px;
+margin-top:20px;
 
 
 font-weight:bold;
 
 
-text-shadow:2px 2px black;
+text-shadow:2px 2px #000;
 
 
 }
@@ -339,20 +310,41 @@ text-shadow:2px 2px black;
 
 
 
-
-.main-button{
-
-
-display:inline-block;
+.quick-menu{
 
 
-margin-top:40px;
+margin:35px auto;
 
 
-padding:18px 50px;
+display:flex;
 
 
-background:var(--orange);
+justify-content:center;
+
+
+gap:15px;
+
+
+flex-wrap:wrap;
+
+
+}
+
+
+
+.quick-menu a{
+
+
+background:rgba(0,0,0,.75);
+
+
+border:2px solid var(--orange);
+
+
+padding:12px 25px;
+
+
+border-radius:30px;
 
 
 color:white;
@@ -364,26 +356,17 @@ text-decoration:none;
 font-weight:bold;
 
 
-border-radius:10px;
-
-
 text-transform:uppercase;
 
 
-transition:.3s;
-
-
 }
 
 
 
-.main-button:hover{
+.quick-menu a:hover{
 
 
-transform:scale(1.08);
-
-
-box-shadow:0 0 30px var(--orange);
+background:var(--orange);
 
 
 }
@@ -391,54 +374,62 @@ box-shadow:0 0 30px var(--orange);
 
 
 
+/* ======================
+   ALLGEMEINE SEKTION
+====================== */
 
-/* =====================
-   ALLGEMEINE SEKTIONEN
-===================== */
 
 
 .section{
 
 
-padding:80px 5%;
+max-width:1250px;
+
+
+margin:30px auto;
+
+
+padding:20px;
 
 
 }
 
 
 
-.title{
 
-
-text-align:center;
+.section-title{
 
 
 font-family:'Anton';
 
 
-font-size:60px;
+font-size:45px;
+
+
+text-align:center;
 
 
 text-transform:uppercase;
 
 
-margin-bottom:50px;
-
-
 color:var(--cream);
+
+
+margin-bottom:25px;
 
 
 }
 
 
 
-.title span{
+.section-title span{
 
 
 color:var(--orange);
 
 
 }
+
 
 
 
@@ -456,7 +447,7 @@ color:var(--orange);
 <nav>
 
 
-<div class="navbox">
+<div class="navbar">
 
 
 <div class="logo">
@@ -467,19 +458,19 @@ RETRO WAREHOUSE
 
 
 
-<div class="nav-links">
+<div class="menu">
 
 
-<a href="#profil">
+<a href="#dokumente">
 
-Profil
+Dokumente
 
 </a>
 
 
-<a href="#staerken">
+<a href="#motivation">
 
-Stärken
+Motivation
 
 </a>
 
@@ -491,8 +482,8 @@ Kontakt
 </a>
 
 
-
 </div>
+
 
 
 </div>
@@ -504,11 +495,9 @@ Kontakt
 
 
 
-<section class="hero">
 
 
-<div class="hero-content">
-
+<header class="flyer">
 
 
 <div class="badge">
@@ -516,7 +505,6 @@ Kontakt
 BEWERBUNG ALS LAGERLOGISTIKER
 
 </div>
-
 
 
 
@@ -529,6 +517,7 @@ JEFF
 JEREMAIN
 
 </span>
+
 
 </h1>
 
@@ -543,9 +532,29 @@ Mehr als ein Job – starke Logistik für starke Unternehmen
 
 
 
-<a class="main-button" href="#profil">
 
-Bewerbung ansehen
+<div class="quick-menu">
+
+
+<a href="#dokumente">
+
+🪪 Dokumente
+
+</a>
+
+
+
+<a href="#motivation">
+
+⭐ Stärken
+
+</a>
+
+
+
+<a href="#kontakt">
+
+💬 Kontakt
 
 </a>
 
@@ -554,16 +563,17 @@ Bewerbung ansehen
 </div>
 
 
-</section>
-<!-- =========================
+
+</header>
+<!-- ======================
      DOKUMENTE
-========================= -->
+====================== -->
 
 
-<section class="section" id="profil">
+<section class="section" id="dokumente">
 
 
-<h2 class="title">
+<h2 class="section-title">
 
 MEINE <span>DOKUMENTE</span>
 
@@ -571,7 +581,10 @@ MEINE <span>DOKUMENTE</span>
 
 
 
+
 <div class="documents">
+
+
 
 
 
@@ -581,19 +594,13 @@ MEINE <span>DOKUMENTE</span>
 <div class="document-card">
 
 
-<div class="document-header">
+<div class="card-title">
 
-
-<h2>
 STAAT SAN ANDREAS
+
 <br>
+
 PERSONALAUSWEIS
-</h2>
-
-
-<span>
-FUNKLISTE
-</span>
 
 
 </div>
@@ -601,62 +608,77 @@ FUNKLISTE
 
 
 
-<div class="document-content">
+<div class="card-content">
 
 
 <img src="personalausweis.png" alt="Personalausweis">
 
 
 
-<div class="document-data">
+<div class="card-info">
 
 
-<p>
+<div>
+
 NACHNAME
 
 <strong>
 JEREMAIN
 </strong>
-</p>
+
+</div>
 
 
-<p>
+
+<div>
+
 VORNAME
 
 <strong>
 JEFF
 </strong>
-</p>
+
+</div>
 
 
 
-<p>
+
+<div>
+
 GEBURTSDATUM
 
 <strong>
 14.02.1990
 </strong>
-</p>
+
+</div>
 
 
 
-<p>
+
+<div>
+
 GRÖSSE
 
 <strong>
 186 CM
 </strong>
-</p>
+
+</div>
 
 
 
-<p>
+
+<div>
+
 STATUS
 
 <strong>
 AKTIV ✓
 </strong>
-</p>
+
+</div>
+
 
 
 </div>
@@ -667,16 +689,14 @@ AKTIV ✓
 
 
 
-<div class="signature">
+<div class="sign">
 
 Jeff Jeremain
 
 </div>
 
 
-
 </div>
-
 
 
 
@@ -687,29 +707,17 @@ Jeff Jeremain
 <!-- FÜHRERSCHEIN -->
 
 
+
 <div class="document-card license">
 
 
-<div class="document-header">
-
-
-<h2>
+<div class="card-title">
 
 STAAT SAN ANDREAS
 
 <br>
 
 FÜHRERSCHEIN
-
-</h2>
-
-
-
-<span>
-
-B,A,C,P
-
-</span>
 
 
 </div>
@@ -718,17 +726,17 @@ B,A,C,P
 
 
 
-<div class="document-content">
+<div class="card-content">
 
 
 <img src="fuehrerschein.png" alt="Führerschein">
 
 
 
-<div class="document-data">
+<div class="card-info">
 
 
-<p>
+<div>
 
 NAME
 
@@ -738,26 +746,26 @@ JEFF JEREMAIN
 
 </strong>
 
-</p>
+</div>
 
 
 
-
-<p>
+<div>
 
 KLASSEN
 
 <strong>
 
-C / LKW
+B,A,C,P
 
 </strong>
 
-</p>
+</div>
 
 
 
-<p>
+
+<div>
 
 STATUS
 
@@ -767,11 +775,12 @@ GÜLTIG ✓
 
 </strong>
 
-</p>
+</div>
 
 
 
-<p>
+
+<div>
 
 EINSATZ
 
@@ -781,10 +790,6 @@ SOFORT BEREIT
 
 </strong>
 
-</p>
-
-
-
 </div>
 
 
@@ -793,6 +798,19 @@ SOFORT BEREIT
 
 
 </div>
+
+
+
+
+<div class="sign">
+
+RETRO WAREHOUSE
+
+</div>
+
+
+</div>
+
 
 
 
@@ -806,14 +824,12 @@ SOFORT BEREIT
 
 
 
-
-<!-- =========================
+<!-- ======================
      INFO KARTEN
-========================= -->
+====================== -->
 
 
-
-<section class="section" id="staerken">
+<section class="section" id="motivation">
 
 
 <div class="info-grid">
@@ -822,7 +838,7 @@ SOFORT BEREIT
 
 
 
-<div class="info-card">
+<div class="info-box">
 
 
 <h2>
@@ -839,10 +855,11 @@ Ich möchte Teil von Retro Warehouse werden,
 weil mich die Arbeit in der Logistik begeistert.
 
 Die Organisation, der Umgang mit Waren und
-das Arbeiten im Team sind genau das, was mir liegt.
+das Arbeiten im Team sind genau das,
+was mir liegt.
 
-Ich möchte meine Erfahrung einbringen und
-zu einem zuverlässigen Ablauf beitragen.
+Ich möchte mit meiner zuverlässigen Arbeit
+zu einem erfolgreichen Ablauf beitragen.
 
 </p>
 
@@ -854,8 +871,7 @@ zu einem zuverlässigen Ablauf beitragen.
 
 
 
-
-<div class="info-card">
+<div class="info-box">
 
 
 <h2>
@@ -885,17 +901,17 @@ zu einem zuverlässigen Ablauf beitragen.
 
 
 <li>
+✓ Verantwortungsbewusstsein
+</li>
+
+
+<li>
 ✓ Strukturiertes Arbeiten
 </li>
 
 
 <li>
 ✓ Lernbereitschaft
-</li>
-
-
-<li>
-✓ Verantwortungsbewusstsein
 </li>
 
 
@@ -910,13 +926,12 @@ zu einem zuverlässigen Ablauf beitragen.
 
 
 
-
-<div class="info-card">
+<div class="info-box">
 
 
 <h2>
 
-💼 WAS MICH AN DER STELLE BESONDERS ANSPRICHT
+💼 WAS MICH AN DER STELLE REIZT
 
 </h2>
 
@@ -925,13 +940,14 @@ zu einem zuverlässigen Ablauf beitragen.
 <p>
 
 Besonders reizt mich die Kombination aus
-körperlicher Arbeit, Verantwortung und Teamarbeit.
+körperlicher Arbeit, Verantwortung und
+Teamarbeit.
 
-Ich arbeite gerne praktisch und behalte auch
-in stressigen Situationen den Überblick.
+Ich arbeite gerne praktisch und behalte
+auch in stressigen Situationen den Überblick.
 
-Die Möglichkeit, Teil eines motivierten Teams
-zu werden, motiviert mich sehr.
+Gemeinsam im Team einen reibungslosen Ablauf
+zu schaffen, motiviert mich sehr.
 
 </p>
 
@@ -945,9 +961,7 @@ zu werden, motiviert mich sehr.
 </div>
 
 
-
 </section>
-
 
 
 
@@ -959,32 +973,27 @@ zu werden, motiviert mich sehr.
 <style>
 
 
-/* =====================
-DOKUMENTKARTEN
-===================== */
+/* ======================
+   DOKUMENT KARTEN
+====================== */
+
 
 
 .documents{
 
 
-max-width:1200px;
-
-
-margin:auto;
-
-
 display:grid;
 
 
-grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
+grid-template-columns:
+
+repeat(2,1fr);
 
 
-gap:30px;
+gap:25px;
 
 
 }
-
-
 
 
 
@@ -997,9 +1006,9 @@ linear-gradient(
 
 145deg,
 
-#07131b,
+rgba(5,20,30,.95),
 
-#0c2028
+rgba(10,30,40,.95)
 
 );
 
@@ -1007,18 +1016,20 @@ linear-gradient(
 border:2px solid var(--orange);
 
 
-border-radius:20px;
+border-radius:18px;
 
 
-padding:25px;
+padding:22px;
 
 
 box-shadow:
 
-0 15px 40px #000;
+0 0 35px #000;
 
 
 }
+
+
 
 
 
@@ -1027,41 +1038,133 @@ box-shadow:
 
 border-color:#00bfa6;
 
+
 }
 
 
 
 
-
-.document-header{
-
-
-display:flex;
+.card-title{
 
 
-justify-content:space-between;
+font-family:'Anton';
 
 
-align-items:center;
+font-size:26px;
 
 
-border-bottom:1px solid #ffffff33;
+color:var(--cream);
+
+
+border-bottom:2px solid #ffffff33;
 
 
 padding-bottom:15px;
 
 
-margin-bottom:25px;
+margin-bottom:20px;
 
 
 }
 
 
 
-.document-header h2{
 
 
-font-family:'Anton';
+.card-content{
+
+
+display:flex;
+
+
+gap:20px;
+
+
+}
+
+
+
+
+.card-content img{
+
+
+width:130px;
+
+
+height:160px;
+
+
+object-fit:cover;
+
+
+border-radius:8px;
+
+
+border:2px solid var(--gold);
+
+
+}
+
+
+
+.card-info{
+
+
+flex:1;
+
+
+}
+
+
+
+.card-info div{
+
+
+background:#0008;
+
+
+padding:8px;
+
+
+margin-bottom:8px;
+
+
+font-size:13px;
+
+
+}
+
+
+
+.card-info strong{
+
+
+display:block;
+
+
+font-size:18px;
+
+
+color:white;
+
+
+}
+
+
+
+.sign{
+
+
+margin-top:20px;
+
+
+border-top:1px solid #ffffff33;
+
+
+padding-top:12px;
+
+
+font-family:cursive;
 
 
 font-size:25px;
@@ -1075,153 +1178,25 @@ color:var(--cream);
 
 
 
-.document-header span{
 
-
-color:var(--orange);
-
-
-font-weight:bold;
-
-
-}
-
-
-
-
-
-.document-content{
-
-
-display:flex;
-
-
-gap:25px;
-
-
-}
-
-
-
-
-.document-content img{
-
-
-width:150px;
-
-
-height:190px;
-
-
-object-fit:cover;
-
-
-border-radius:10px;
-
-
-border:2px solid var(--gold);
-
-
-}
-
-
-
-
-
-.document-data{
-
-
-flex:1;
-
-
-}
-
-
-
-.document-data p{
-
-
-background:#0008;
-
-
-padding:10px;
-
-
-margin-bottom:10px;
-
-
-font-size:14px;
-
-
-}
-
-
-
-.document-data strong{
-
-
-display:block;
-
-
-font-size:20px;
-
-
-color:white;
-
-
-}
-
-
-
-.signature{
-
-
-margin-top:25px;
-
-
-border-top:1px solid #ffffff33;
-
-
-padding-top:15px;
-
-
-font-family:cursive;
-
-
-font-size:30px;
-
-
-color:var(--cream);
-
-
-}
-
-
-
-
-
-/* =====================
-INFO KARTEN
-===================== */
+/* ======================
+ INFO BOXEN
+====================== */
 
 
 
 .info-grid{
 
 
-max-width:1300px;
-
-
-margin:auto;
-
-
 display:grid;
 
 
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+grid-template-columns:
+
+repeat(3,1fr);
 
 
-gap:25px;
+gap:20px;
 
 
 }
@@ -1229,49 +1204,51 @@ gap:25px;
 
 
 
+.info-box{
 
-.info-card{
 
+background:
 
-background:rgba(7,15,20,.9);
+rgba(5,12,16,.9);
 
 
 border:2px solid var(--gold);
 
 
-border-radius:18px;
+border-radius:15px;
 
 
-padding:30px;
+padding:25px;
 
 
 }
 
 
 
-.info-card h2{
+.info-box h2{
 
 
 font-family:'Anton';
 
 
-font-size:30px;
+font-size:28px;
 
 
 color:var(--orange);
 
 
-margin-bottom:20px;
+margin-bottom:15px;
 
 
 }
 
 
 
-.info-card p{
+
+.info-box p{
 
 
-line-height:1.7;
+line-height:1.6;
 
 
 color:#ddd;
@@ -1281,10 +1258,17 @@ color:#ddd;
 
 
 
-.info-card li{
+.info-box ul{
 
 
 list-style:none;
+
+
+}
+
+
+
+.info-box li{
 
 
 padding:10px;
@@ -1293,23 +1277,41 @@ padding:10px;
 border-bottom:1px solid #ffffff22;
 
 
-font-size:18px;
+font-weight:bold;
 
 
 }
 
 
 
+@media(max-width:900px){
+
+
+.documents,
+
+
+.info-grid{
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+
+}
+
 </style>
-<!-- =========================
+<!-- ======================
      KONTAKT
-========================= -->
+====================== -->
 
 
 <section class="section" id="kontakt">
 
 
-<h2 class="title">
+<h2 class="section-title">
 
 KONTAKT <span>INFORMATION</span>
 
@@ -1318,41 +1320,50 @@ KONTAKT <span>INFORMATION</span>
 
 
 
-<div class="contact-bar">
+<div class="contact-grid">
 
 
 
-<div class="contact-item">
+<div class="contact-box">
 
-<div class="icon">
+
+<div class="contact-icon">
 
 📍
 
 </div>
 
+
 <div>
 
-<strong>
+<h3>
 
 ADRESSE
 
-</strong>
+</h3>
 
-<br>
+
+<p>
 
 Bride Street, 7294
 
+</p>
+
+
 </div>
 
+
 </div>
 
 
 
 
 
-<div class="contact-item">
 
-<div class="icon">
+<div class="contact-box">
+
+
+<div class="contact-icon">
 
 📞
 
@@ -1361,45 +1372,19 @@ Bride Street, 7294
 
 <div>
 
-<strong>
+<h3>
 
 TELEFON
 
-</strong>
+</h3>
 
-<br>
+
+<p>
 
 6029103965
 
-</div>
+</p>
 
-
-</div>
-
-
-
-
-
-<div class="contact-item">
-
-<div class="icon">
-
-🎂
-
-</div>
-
-
-<div>
-
-<strong>
-
-ALTER
-
-</strong>
-
-<br>
-
-36 Jahre
 
 </div>
 
@@ -1410,26 +1395,68 @@ ALTER
 
 
 
-<div class="contact-item">
 
-<div class="icon">
+<div class="contact-box">
 
-📄
+
+<div class="contact-icon">
+
+👤
 
 </div>
 
 
 <div>
 
-<strong>
+<h3>
 
-VISUMSTUFE
+BEWERBER
 
-</strong>
+</h3>
 
-<br>
 
-28
+<p>
+
+Jeff Jeremain
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="contact-box">
+
+
+<div class="contact-icon">
+
+📦
+
+</div>
+
+
+<div>
+
+<h3>
+
+POSITION
+
+</h3>
+
+
+<p>
+
+Lagerlogistiker
+
+</p>
+
 
 </div>
 
@@ -1438,6 +1465,7 @@ VISUMSTUFE
 
 
 
+
 </div>
 
 
@@ -1446,11 +1474,13 @@ VISUMSTUFE
 
 
 
-<!-- ABSCHLUSS -->
+<!-- ======================
+     DISCORD BANNER
+====================== -->
 
 
 
-<div class="final-banner">
+<div class="apply-banner">
 
 
 
@@ -1462,23 +1492,26 @@ VIELEN DANK
 
 
 
+
 <p>
 
 FÜR DIE MÖGLICHKEIT
-ZUR BEWERBUNG!
+ZUR BEWERBUNG BEI
+RETRO WAREHOUSE
 
 </p>
 
 
 
 
-<a
 
-class="discord-button"
+<a
 
 href="https://discord.com/users/811982593158676551"
 
-target="_blank">
+target="_blank"
+
+class="discord-button">
 
 
 💬 BEWERBER KONTAKTIEREN
@@ -1494,7 +1527,9 @@ target="_blank">
 
 
 
+
 </section>
+
 
 
 
@@ -1527,32 +1562,27 @@ JEFF JEREMAIN © 2026
 
 
 
-
 <style>
 
 
-/* =====================
-KONTAKTLEISTE
-===================== */
+/* ======================
+ KONTAKT
+====================== */
 
 
 
-.contact-bar{
-
-
-max-width:1200px;
-
-
-margin:auto;
+.contact-grid{
 
 
 display:grid;
 
 
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+grid-template-columns:
+
+repeat(4,1fr);
 
 
-gap:20px;
+gap:15px;
 
 
 }
@@ -1560,19 +1590,12 @@ gap:20px;
 
 
 
-.contact-item{
+.contact-box{
 
 
-display:flex;
+background:
 
-
-align-items:center;
-
-
-gap:20px;
-
-
-background:rgba(8,16,22,.9);
+rgba(5,12,16,.9);
 
 
 border:2px solid var(--gold);
@@ -1584,11 +1607,20 @@ border-radius:15px;
 padding:20px;
 
 
+display:flex;
+
+
+align-items:center;
+
+
+gap:15px;
+
+
 }
 
 
 
-.contact-item .icon{
+.contact-icon{
 
 
 font-size:35px;
@@ -1601,13 +1633,28 @@ color:var(--orange);
 
 
 
-.contact-item strong{
+
+.contact-box h3{
+
+
+font-family:'Anton';
 
 
 color:var(--orange);
 
 
-font-size:20px;
+font-size:22px;
+
+
+}
+
+
+
+
+.contact-box p{
+
+
+font-size:18px;
 
 
 }
@@ -1616,37 +1663,37 @@ font-size:20px;
 
 
 
+/* ======================
+ ABSCHLUSS
+====================== */
 
-/* =====================
-ABSCHLUSS
-===================== */
 
 
-.final-banner{
+.apply-banner{
 
 
 max-width:900px;
 
 
-margin:70px auto 30px;
+margin:50px auto 20px;
 
 
-padding:45px;
+padding:40px;
 
 
 text-align:center;
 
 
-background:
 
+background:
 
 linear-gradient(
 
 90deg,
 
-#7e241a,
+#8c2419,
 
-#d95720
+#e05a1b
 
 );
 
@@ -1655,25 +1702,25 @@ linear-gradient(
 border:3px solid var(--gold);
 
 
-border-radius:20px;
+border-radius:18px;
 
 
 box-shadow:
 
-0 20px 40px #000;
+0 15px 40px #000;
 
 
 }
 
 
 
-.final-banner h2{
+.apply-banner h2{
 
 
 font-family:'Anton';
 
 
-font-size:65px;
+font-size:60px;
 
 
 color:var(--cream);
@@ -1683,10 +1730,10 @@ color:var(--cream);
 
 
 
-.final-banner p{
+.apply-banner p{
 
 
-font-size:25px;
+font-size:24px;
 
 
 font-weight:bold;
@@ -1704,9 +1751,6 @@ margin:20px;
 
 
 display:inline-block;
-
-
-margin-top:20px;
 
 
 background:white;
@@ -1743,9 +1787,7 @@ transition:.3s;
 transform:scale(1.08);
 
 
-box-shadow:
-
-0 0 30px white;
+box-shadow:0 0 30px white;
 
 
 }
@@ -1754,18 +1796,16 @@ box-shadow:
 
 
 
-
-
 footer{
 
 
-background:#050607;
-
-
-padding:40px;
-
-
 text-align:center;
+
+
+padding:35px;
+
+
+background:#030405;
 
 
 color:#aaa;
@@ -1780,75 +1820,30 @@ letter-spacing:2px;
 
 
 
-/* =====================
-MOBILE
-===================== */
 
 
-@media(max-width:700px){
+@media(max-width:900px){
 
 
+.contact-grid{
 
-.navbox{
 
-
-flex-direction:column;
-
-gap:15px;
+grid-template-columns:1fr;
 
 
 }
 
 
+.apply-banner h2{
 
-.nav-links a{
 
-
-font-size:12px;
-
-margin-left:8px;
+font-size:40px;
 
 
 }
 
 
-
-
-.document-content{
-
-
-flex-direction:column;
-
-
 }
-
-
-
-.hero h1{
-
-
-font-size:60px;
-
-
-}
-
-
-
-.contact-item{
-
-
-flex-direction:column;
-
-
-text-align:center;
-
-
-}
-
-
-
-}
-
 
 
 </style>
