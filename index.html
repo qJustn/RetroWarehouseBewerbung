@@ -9,7 +9,7 @@
 <title>Retro Warehouse Bewerbung</title>
 
 
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 
 <style>
@@ -17,14 +17,16 @@
 
 :root{
 
---orange:#e45a1b;
---gold:#e8b95c;
---cream:#f5dfaa;
---black:#050708;
+--orange:#e85b18;
+--gold:#dcae52;
+--cream:#f4dfa8;
+--dark:#050607;
 
 }
 
 
+
+/* RESET */
 
 *{
 
@@ -36,30 +38,41 @@ box-sizing:border-box;
 
 
 
-body{
+html,body{
 
-
-width:100vw;
-
-height:100vh;
-
+width:100%;
+height:100%;
 
 overflow:hidden;
 
-
 font-family:'Oswald',sans-serif;
-
 
 color:white;
 
+}
 
 
-background:
+
+
+/* =========================
+HINTERGRUND
+========================= */
+
+
+.background{
+
+
+position:fixed;
+
+inset:0;
+
+
+background-image:
 
 
 linear-gradient(
 
-rgba(0,0,0,.25),
+rgba(0,0,0,.35),
 
 rgba(0,0,0,.75)
 
@@ -79,59 +92,54 @@ background-position:center;
 background-repeat:no-repeat;
 
 
+z-index:-3;
+
+
 }
 
 
 
 
-/* Film / Retro Effekt */
 
+/* Farbverstärkung */
 
-body::after{
+.background::after{
 
 
 content:"";
 
 
-position:fixed;
+position:absolute;
 
 
 inset:0;
-
-
-pointer-events:none;
 
 
 
 background:
 
 
-linear-gradient(
-
-90deg,
-
-rgba(255,120,30,.08),
-
-transparent,
-
-rgba(0,0,0,.2)
-
-),
-
-
 radial-gradient(
 
 circle,
 
-transparent 40%,
+transparent 25%,
 
-rgba(0,0,0,.65)
+rgba(0,0,0,.7)
+
+),
+
+
+linear-gradient(
+
+90deg,
+
+rgba(255,100,20,.15),
+
+transparent
 
 );
 
-
-
-z-index:1;
 
 
 }
@@ -140,16 +148,16 @@ z-index:1;
 
 
 
-
-/* ===================
+/* =========================
 NAVIGATION
-=================== */
+========================= */
+
 
 
 nav{
 
 
-position:absolute;
+position:fixed;
 
 
 top:25px;
@@ -161,13 +169,13 @@ left:50%;
 transform:translateX(-50%);
 
 
-width:90%;
+width:92%;
 
 
 max-width:1400px;
 
 
-z-index:10;
+z-index:20;
 
 
 }
@@ -175,7 +183,11 @@ z-index:10;
 
 
 
-.navbox{
+
+.navbar{
+
+
+height:75px;
 
 
 display:flex;
@@ -187,27 +199,29 @@ align-items:center;
 justify-content:space-between;
 
 
+padding:0 30px;
+
+
+
 background:
 
-
-rgba(0,0,0,.8);
-
+rgba(0,0,0,.85);
 
 
-border:1px solid rgba(255,255,255,.25);
+
+border:
+
+1px solid rgba(255,255,255,.2);
+
 
 
 border-radius:18px;
 
 
-padding:15px 30px;
-
-
-backdrop-filter:blur(10px);
+backdrop-filter:blur(12px);
 
 
 }
-
 
 
 
@@ -224,8 +238,10 @@ font-size:34px;
 color:var(--orange);
 
 
-}
+letter-spacing:1px;
 
+
+}
 
 
 
@@ -236,14 +252,13 @@ color:var(--orange);
 display:flex;
 
 
+gap:15px;
+
+
 align-items:center;
 
 
-gap:10px;
-
-
 }
-
 
 
 
@@ -253,28 +268,25 @@ gap:10px;
 background:none;
 
 
-border:none;
+border:0;
 
 
 color:white;
 
 
+cursor:pointer;
+
+
 font-family:'Oswald';
-
-
-font-weight:bold;
 
 
 font-size:15px;
 
 
-cursor:pointer;
+font-weight:bold;
 
 
 padding:12px;
-
-
-text-transform:uppercase;
 
 
 transition:.3s;
@@ -285,7 +297,6 @@ transition:.3s;
 
 
 .menu button:hover,
-
 
 .menu button.active{
 
@@ -302,7 +313,7 @@ border-bottom:3px solid var(--orange);
 
 
 
-.menu .bewerbung{
+.menu .apply{
 
 
 background:var(--orange);
@@ -311,7 +322,7 @@ background:var(--orange);
 border-radius:8px;
 
 
-padding:12px 25px;
+padding:13px 25px;
 
 
 }
@@ -320,18 +331,25 @@ padding:12px 25px;
 
 
 
-/* ===================
-APP SYSTEM
-=================== */
+.menu .apply:hover{
+
+
+color:white;
+
+
+}
+
+
+
+
+
+/* =========================
+SEITEN SYSTEM
+========================= */
+
 
 
 .app{
-
-
-position:relative;
-
-
-z-index:5;
 
 
 height:100vh;
@@ -346,10 +364,11 @@ justify-content:center;
 align-items:center;
 
 
-padding-top:100px;
+padding-top:90px;
 
 
 }
+
 
 
 
@@ -363,16 +382,14 @@ display:none;
 width:90%;
 
 
-max-width:1250px;
+max-width:1300px;
 
 
 height:75vh;
 
 
-animation:show .5s;
-
-
 }
+
 
 
 
@@ -383,21 +400,21 @@ animation:show .5s;
 display:block;
 
 
+animation:fade .5s;
+
+
 }
 
 
 
-
-
-@keyframes show{
+@keyframes fade{
 
 
 from{
 
 opacity:0;
 
-transform:scale(.95);
-
+transform:scale(.96);
 
 }
 
@@ -408,7 +425,6 @@ opacity:1;
 
 transform:scale(1);
 
-
 }
 
 
@@ -419,9 +435,10 @@ transform:scale(1);
 
 
 
-/* ===================
+
+/* =========================
 START COVER
-=================== */
+========================= */
 
 
 
@@ -437,10 +454,10 @@ display:flex;
 flex-direction:column;
 
 
-justify-content:center;
-
-
 align-items:center;
+
+
+justify-content:center;
 
 
 text-align:center;
@@ -451,14 +468,13 @@ text-align:center;
 
 
 
-
-.tag{
+.badge{
 
 
 background:var(--orange);
 
 
-padding:12px 35px;
+padding:14px 40px;
 
 
 border-radius:50px;
@@ -470,7 +486,9 @@ font-weight:bold;
 letter-spacing:3px;
 
 
-box-shadow:0 0 35px #e45a1b;
+box-shadow:
+
+0 0 35px rgba(232,91,24,.8);
 
 
 }
@@ -481,23 +499,26 @@ box-shadow:0 0 35px #e45a1b;
 .cover h1{
 
 
+margin-top:35px;
+
+
 font-family:'Anton';
 
 
-font-size:clamp(70px,10vw,140px);
+font-size:
+
+clamp(70px,10vw,140px);
 
 
-line-height:.8;
 
-
-margin-top:35px;
+line-height:.85;
 
 
 text-transform:uppercase;
 
 
-
 color:var(--cream);
+
 
 
 text-shadow:
@@ -506,7 +527,8 @@ text-shadow:
 5px 5px #000,
 
 
-10px 10px #8b2815;
+10px 10px #7d2511;
+
 
 
 }
@@ -525,7 +547,11 @@ color:var(--orange);
 
 
 
+
 .cover p{
+
+
+margin-top:30px;
 
 
 font-size:30px;
@@ -534,13 +560,11 @@ font-size:30px;
 font-weight:bold;
 
 
-margin-top:30px;
-
-
-text-shadow:3px 3px #000;
+text-shadow:3px 3px black;
 
 
 }
+
 
 
 
@@ -551,11 +575,10 @@ text-shadow:3px 3px #000;
 margin-top:40px;
 
 
-padding:25px 60px;
+padding:25px 70px;
 
 
 background:
-
 
 rgba(0,0,0,.75);
 
@@ -564,20 +587,16 @@ rgba(0,0,0,.75);
 border:2px solid var(--gold);
 
 
-border-radius:18px;
+border-radius:20px;
 
 
-font-size:24px;
-
-
-text-transform:uppercase;
+font-size:25px;
 
 
 letter-spacing:2px;
 
 
 }
-
 
 
 
@@ -593,12 +612,16 @@ letter-spacing:2px;
 
 
 
+<div class="background"></div>
+
+
+
 
 
 <nav>
 
 
-<div class="navbox">
+<div class="navbar">
 
 
 <div class="logo">
@@ -609,40 +632,64 @@ RETRO WAREHOUSE
 
 
 
+
 <div class="menu">
 
 
-<button class="active" onclick="openPage('start',this)">
+
+<button class="active"
+
+onclick="openPage('start',this)">
+
 START
+
 </button>
+
 
 
 <button onclick="openPage('ueber',this)">
+
 ÜBER MICH
+
 </button>
+
 
 
 <button onclick="openPage('staerken',this)">
+
 MEINE STÄRKEN
+
 </button>
+
 
 
 <button onclick="openPage('motivation',this)">
+
 MEINE MOTIVATION
+
 </button>
+
 
 
 <button onclick="openPage('fuehrerschein',this)">
+
 FÜHRERSCHEIN
+
 </button>
+
 
 
 <button onclick="openPage('kontakt',this)">
+
 KONTAKT
+
 </button>
 
 
-<button class="bewerbung" onclick="discord()">
+
+<button class="apply"
+
+onclick="discord()">
 
 💼 BEWERBUNG
 
@@ -663,6 +710,8 @@ KONTAKT
 
 
 
+
+
 <div class="app">
 
 
@@ -674,8 +723,7 @@ KONTAKT
 <div class="cover">
 
 
-
-<div class="tag">
+<div class="badge">
 
 BEWERBUNG ALS LAGERLOGISTIKER
 
@@ -694,7 +742,9 @@ JEREMAIN
 
 </span>
 
+
 </h1>
+
 
 
 
@@ -706,7 +756,10 @@ Mehr als ein Job – starke Logistik für starke Unternehmen
 
 
 
+
+
 <div class="cover-card">
+
 
 RETRO WAREHOUSE
 
@@ -714,25 +767,24 @@ RETRO WAREHOUSE
 
 LOGISTIK · TEAMWORK · ZUKUNFT
 
-</div>
-
-
-
 
 </div>
 
+
+
+</div>
 
 
 </section>
-<!-- ==========================
+<!-- =========================
      ÜBER MICH
-========================== -->
+========================= -->
 
 
 <section id="ueber" class="page">
 
 
-<div class="panel">
+<div class="content-card">
 
 
 <h2>
@@ -743,12 +795,10 @@ LOGISTIK · TEAMWORK · ZUKUNFT
 
 
 
-
-<div class="profile-layout">
-
+<div class="profile">
 
 
-<div class="id-frame">
+<div class="id-box">
 
 
 <img src="personalausweis.png"
@@ -756,18 +806,15 @@ LOGISTIK · TEAMWORK · ZUKUNFT
 alt="Personalausweis">
 
 
-
 </div>
 
 
 
 
-
-<div class="data-grid">
-
+<div class="info">
 
 
-<div class="data-box">
+<div class="info-item">
 
 <label>
 
@@ -786,7 +833,7 @@ JEREMAIN
 
 
 
-<div class="data-box">
+<div class="info-item">
 
 <label>
 
@@ -805,7 +852,7 @@ JEFF
 
 
 
-<div class="data-box">
+<div class="info-item">
 
 <label>
 
@@ -824,7 +871,7 @@ GEBURTSDATUM
 
 
 
-<div class="data-box">
+<div class="info-item">
 
 <label>
 
@@ -843,8 +890,7 @@ GRÖSSE
 
 
 
-
-<div class="data-box">
+<div class="info-item">
 
 <label>
 
@@ -863,8 +909,7 @@ STAATSANGEHÖRIGKEIT
 
 
 
-
-<div class="data-box">
+<div class="info-item">
 
 <label>
 
@@ -881,13 +926,10 @@ LAGERLOGISTIKER
 </div>
 
 
-
 </div>
 
 
-
 </div>
-
 
 
 
@@ -914,16 +956,15 @@ Jeff Jeremain
 
 
 
-<!-- ==========================
+<!-- =========================
      STÄRKEN
-========================== -->
+========================= -->
 
 
 <section id="staerken" class="page">
 
 
-<div class="panel">
-
+<div class="content-card">
 
 
 <h2>
@@ -934,24 +975,25 @@ MEINE <span>STÄRKEN</span>
 
 
 
-
-
-<div class="strengths">
+<div class="strength-grid">
 
 
 
 
 
-<div class="strength">
+<div class="strength-card">
 
-⭐
+<div class="icon">
+
+✓
+
+</div>
 
 <h3>
 
 Zuverlässigkeit
 
 </h3>
-
 
 <p>
 
@@ -965,17 +1007,19 @@ Auf mich ist immer Verlass.
 
 
 
+<div class="strength-card">
 
-<div class="strength">
+<div class="icon">
 
 🤝
+
+</div>
 
 <h3>
 
 Teamarbeit
 
 </h3>
-
 
 <p>
 
@@ -990,9 +1034,13 @@ Gemeinsam erreichen wir mehr.
 
 
 
-<div class="strength">
+<div class="strength-card">
+
+<div class="icon">
 
 💪
+
+</div>
 
 <h3>
 
@@ -1000,10 +1048,9 @@ Belastbarkeit
 
 </h3>
 
-
 <p>
 
-Auch bei schwierigen Aufgaben bleibe ich konzentriert.
+Körperlich und mental belastbar.
 
 </p>
 
@@ -1014,9 +1061,13 @@ Auch bei schwierigen Aufgaben bleibe ich konzentriert.
 
 
 
-<div class="strength">
+<div class="strength-card">
+
+<div class="icon">
 
 📦
+
+</div>
 
 <h3>
 
@@ -1024,10 +1075,9 @@ Warenumgang
 
 </h3>
 
-
 <p>
 
-Sorgfältiger Umgang mit Material und Waren.
+Sorgfältiger Umgang mit Material.
 
 </p>
 
@@ -1038,9 +1088,13 @@ Sorgfältiger Umgang mit Material und Waren.
 
 
 
-<div class="strength">
+<div class="strength-card">
+
+<div class="icon">
 
 📋
+
+</div>
 
 <h3>
 
@@ -1048,10 +1102,9 @@ Organisation
 
 </h3>
 
-
 <p>
 
-Strukturiertes und sauberes Arbeiten.
+Strukturiertes Arbeiten gehört zu mir.
 
 </p>
 
@@ -1062,9 +1115,13 @@ Strukturiertes und sauberes Arbeiten.
 
 
 
-<div class="strength">
+<div class="strength-card">
+
+<div class="icon">
 
 🚀
+
+</div>
 
 <h3>
 
@@ -1072,10 +1129,9 @@ Lernbereitschaft
 
 </h3>
 
-
 <p>
 
-Offen für neue Aufgaben.
+Neue Aufgaben nehme ich gerne an.
 
 </p>
 
@@ -1084,8 +1140,8 @@ Offen für neue Aufgaben.
 
 
 
-</div>
 
+</div>
 
 
 
@@ -1102,16 +1158,15 @@ Offen für neue Aufgaben.
 
 
 
-<!-- ==========================
+<!-- =========================
      MOTIVATION
-========================== -->
+========================= -->
 
 
 <section id="motivation" class="page">
 
 
-<div class="panel motivation">
-
+<div class="content-card">
 
 
 <h2>
@@ -1123,7 +1178,8 @@ MEINE <span>MOTIVATION</span>
 
 
 
-<div class="text-box">
+<div class="motivation-box">
+
 
 
 <p>
@@ -1138,33 +1194,35 @@ weil mich die Arbeit in der Logistik begeistert.
 
 Die Organisation, der Umgang mit Waren und
 die Zusammenarbeit im Team sind genau die
-Bereiche, in denen ich meine Stärken sehe.
+Bereiche, in denen ich meine Stärken einbringen
+möchte.
 
 
 <br><br>
 
 
-Ich arbeite gerne praktisch, zuverlässig und
+Ich arbeite zuverlässig, praktisch und
 verantwortungsbewusst.
 
 
 <br><br>
 
 
-Mein Ziel ist es, langfristig Teil eines starken
-Teams zu werden und gemeinsam für einen
+Mein Ziel ist es, langfristig ein wertvoller Teil
+des Teams zu werden und gemeinsam für einen
 reibungslosen Ablauf zu sorgen.
 
 
 </p>
 
 
-</div>
-
-
-
 
 </div>
+
+
+
+</div>
+
 
 
 </section>
@@ -1175,15 +1233,18 @@ reibungslosen Ablauf zu sorgen.
 
 
 
+
+
 <style>
 
 
-/* =====================
-ALLGEMEINE PANELS
-===================== */
+
+/* =========================
+   GEMEINSAME KARTEN
+========================= */
 
 
-.panel{
+.content-card{
 
 
 height:100%;
@@ -1194,25 +1255,36 @@ background:
 rgba(3,10,15,.88);
 
 
-border:2px solid var(--gold);
+
+border:
+
+2px solid var(--gold);
+
 
 
 border-radius:25px;
 
 
+
 padding:35px;
+
 
 
 box-shadow:
 
-0 0 50px rgba(0,0,0,.9);
+0 0 50px rgba(0,0,0,.8);
+
+
+
+overflow:auto;
 
 
 }
 
 
 
-.panel h2{
+
+.content-card h2{
 
 
 font-family:'Anton';
@@ -1234,7 +1306,7 @@ margin-bottom:35px;
 
 
 
-.panel h2 span{
+.content-card h2 span{
 
 
 color:var(--orange);
@@ -1246,12 +1318,41 @@ color:var(--orange);
 
 
 
-/* =====================
-ÜBER MICH
-===================== */
 
 
-.profile-layout{
+/* =========================
+   PROFIL
+========================= */
+
+
+
+.profile{
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+gap:60px;
+
+
+}
+
+
+
+
+.id-box{
+
+
+width:260px;
+
+
+height:350px;
 
 
 display:flex;
@@ -1263,35 +1364,32 @@ justify-content:center;
 align-items:center;
 
 
-gap:50px;
-
-
 }
 
 
 
 
-.id-frame img{
+.id-box img{
 
 
-width:260px;
+max-width:100%;
 
 
-height:330px;
+max-height:100%;
 
 
-object-fit:cover;
+object-fit:contain;
+
+
+border-radius:12px;
 
 
 border:3px solid var(--orange);
 
 
-border-radius:15px;
-
-
 box-shadow:
 
-0 0 30px #000;
+0 0 25px #000;
 
 
 }
@@ -1299,13 +1397,13 @@ box-shadow:
 
 
 
-.data-grid{
+.info{
 
 
 display:grid;
 
 
-grid-template-columns:repeat(2,260px);
+grid-template-columns:repeat(2,250px);
 
 
 gap:15px;
@@ -1316,16 +1414,19 @@ gap:15px;
 
 
 
-
-.data-box{
+.info-item{
 
 
 background:
 
-rgba(0,0,0,.75);
+rgba(0,0,0,.7);
 
 
-border-left:4px solid var(--orange);
+
+border-left:
+
+4px solid var(--orange);
+
 
 
 padding:15px;
@@ -1335,8 +1436,7 @@ padding:15px;
 
 
 
-
-.data-box label{
+.info-item label{
 
 
 display:block;
@@ -1352,7 +1452,7 @@ font-size:13px;
 
 
 
-.data-box strong{
+.info-item strong{
 
 
 font-size:22px;
@@ -1371,7 +1471,7 @@ margin-top:25px;
 font-family:cursive;
 
 
-font-size:42px;
+font-size:40px;
 
 
 color:var(--cream);
@@ -1385,18 +1485,22 @@ color:var(--cream);
 
 
 
-/* =====================
-STÄRKEN
-===================== */
+
+/* =========================
+   STÄRKEN
+========================= */
 
 
-.strengths{
+
+.strength-grid{
 
 
 display:grid;
 
 
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:
+
+repeat(3,1fr);
 
 
 gap:20px;
@@ -1406,7 +1510,9 @@ gap:20px;
 
 
 
-.strength{
+
+
+.strength-card{
 
 
 background:
@@ -1414,13 +1520,19 @@ background:
 rgba(0,0,0,.65);
 
 
-border:1px solid var(--orange);
+
+border:
+
+1px solid var(--orange);
+
 
 
 border-radius:15px;
 
 
+
 padding:25px;
+
 
 
 text-align:center;
@@ -1433,7 +1545,8 @@ transition:.3s;
 
 
 
-.strength:hover{
+
+.strength-card:hover{
 
 
 transform:translateY(-8px);
@@ -1449,13 +1562,26 @@ box-shadow:
 
 
 
-.strength h3{
+.icon{
 
 
-font-size:25px;
+font-size:40px;
 
 
 color:var(--orange);
+
+
+}
+
+
+
+.strength-card h3{
+
+
+color:var(--orange);
+
+
+font-size:25px;
 
 
 margin:15px 0;
@@ -1465,32 +1591,15 @@ margin:15px 0;
 
 
 
-.strength p{
 
 
-color:#ddd;
-
-
-}
-
+/* =========================
+   MOTIVATION
+========================= */
 
 
 
-
-
-
-/* =====================
-MOTIVATION
-===================== */
-
-
-.text-box{
-
-
-max-width:900px;
-
-
-margin:auto;
+.motivation-box{
 
 
 background:
@@ -1498,7 +1607,11 @@ background:
 rgba(0,0,0,.65);
 
 
-border:1px solid var(--orange);
+
+border:
+
+1px solid var(--orange);
+
 
 
 border-radius:20px;
@@ -1507,14 +1620,22 @@ border-radius:20px;
 padding:40px;
 
 
+
+max-width:900px;
+
+
+margin:auto;
+
+
 }
 
 
 
-.text-box p{
+
+.motivation-box p{
 
 
-font-size:25px;
+font-size:24px;
 
 
 line-height:1.7;
@@ -1533,7 +1654,7 @@ text-align:center;
 @media(max-width:900px){
 
 
-.profile-layout{
+.profile{
 
 
 flex-direction:column;
@@ -1542,7 +1663,8 @@ flex-direction:column;
 }
 
 
-.data-grid{
+
+.info{
 
 
 grid-template-columns:1fr;
@@ -1552,7 +1674,7 @@ grid-template-columns:1fr;
 
 
 
-.strengths{
+.strength-grid{
 
 
 grid-template-columns:1fr;
@@ -1561,19 +1683,21 @@ grid-template-columns:1fr;
 }
 
 
+
 }
+
 
 
 </style>
-<!-- ==========================
+<!-- =========================
      FÜHRERSCHEIN
-========================== -->
+========================= -->
 
 
 <section id="fuehrerschein" class="page">
 
 
-<div class="panel">
+<div class="content-card">
 
 
 <h2>
@@ -1584,7 +1708,9 @@ FÜHRER<span>SCHEIN</span>
 
 
 
+
 <div class="license-layout">
+
 
 
 <div class="license-image">
@@ -1601,11 +1727,12 @@ alt="Führerschein">
 
 
 
-<div class="license-data">
+<div class="license-info">
 
 
 
-<div>
+<div class="license-item">
+
 
 <label>
 
@@ -1613,19 +1740,21 @@ KLASSEN
 
 </label>
 
+
 <strong>
 
 B / A / C / P
 
 </strong>
 
+
 </div>
 
 
 
 
+<div class="license-item">
 
-<div>
 
 <label>
 
@@ -1633,11 +1762,13 @@ STATUS
 
 </label>
 
+
 <strong>
 
 GÜLTIG ✓
 
 </strong>
+
 
 </div>
 
@@ -1645,7 +1776,8 @@ GÜLTIG ✓
 
 
 
-<div>
+<div class="license-item">
+
 
 <label>
 
@@ -1653,18 +1785,21 @@ EINSATZ
 
 </label>
 
+
 <strong>
 
 SOFORT BEREIT
 
 </strong>
 
+
 </div>
 
 
 
 
-<div>
+<div class="license-item">
+
 
 <label>
 
@@ -1672,16 +1807,13 @@ BEREICH
 
 </label>
 
+
 <strong>
 
 LAGERLOGISTIK
 
 </strong>
 
-</div>
-
-
-
 
 </div>
 
@@ -1691,13 +1823,19 @@ LAGERLOGISTIK
 
 
 
+</div>
 
 
-<div class="ready">
 
-🚛 LKW BEREIT FÜR DEN EINSATZ
+
+
+
+<div class="truck-box">
+
+🚛 LKW FÜHRERSCHEIN VORHANDEN
 
 </div>
+
 
 
 
@@ -1714,16 +1852,15 @@ LAGERLOGISTIK
 
 
 
-<!-- ==========================
+<!-- =========================
      KONTAKT
-========================== -->
+========================= -->
 
 
 <section id="kontakt" class="page">
 
 
-<div class="panel">
-
+<div class="content-card">
 
 
 <h2>
@@ -1735,13 +1872,22 @@ KONTAKT <span>INFORMATION</span>
 
 
 
+
 <div class="contact-grid">
 
 
 
-<div class="contact-box">
+
+
+<div class="contact-card">
+
+
+<div class="contact-icon">
 
 📍
+
+</div>
+
 
 <div>
 
@@ -1751,23 +1897,34 @@ ADRESSE
 
 </label>
 
+
 <strong>
 
 Bride Street, 7294
 
 </strong>
 
-</div>
 
 </div>
 
 
+</div>
 
 
 
-<div class="contact-box">
+
+
+
+
+<div class="contact-card">
+
+
+<div class="contact-icon">
 
 📞
+
+</div>
+
 
 <div>
 
@@ -1777,23 +1934,34 @@ TELEFON
 
 </label>
 
+
 <strong>
 
 6029103965
 
 </strong>
 
-</div>
 
 </div>
 
 
+</div>
 
 
 
-<div class="contact-box">
+
+
+
+
+<div class="contact-card">
+
+
+<div class="contact-icon">
 
 👤
+
+</div>
+
 
 <div>
 
@@ -1803,23 +1971,34 @@ BEWERBER
 
 </label>
 
+
 <strong>
 
 Jeff Jeremain
 
 </strong>
 
-</div>
 
 </div>
 
 
+</div>
 
 
 
-<div class="contact-box">
+
+
+
+
+<div class="contact-card">
+
+
+<div class="contact-icon">
 
 📦
+
+</div>
+
 
 <div>
 
@@ -1829,17 +2008,15 @@ POSITION
 
 </label>
 
+
 <strong>
 
 Lagerlogistiker
 
 </strong>
 
-</div>
 
 </div>
-
-
 
 
 </div>
@@ -1847,9 +2024,15 @@ Lagerlogistiker
 
 
 
+</div>
 
 
-<button class="discord"
+
+
+
+
+
+<button class="discord-btn"
 
 onclick="discord()">
 
@@ -1861,8 +2044,9 @@ onclick="discord()">
 
 
 
-</div>
 
+
+</div>
 
 
 </section>
@@ -1887,6 +2071,9 @@ FÜHRERSCHEIN
 .license-layout{
 
 
+height:55%;
+
+
 display:flex;
 
 
@@ -1896,7 +2083,7 @@ justify-content:center;
 align-items:center;
 
 
-gap:60px;
+gap:70px;
 
 
 }
@@ -1907,13 +2094,13 @@ gap:60px;
 .license-image img{
 
 
-width:320px;
+max-width:360px;
 
 
-height:210px;
+max-height:240px;
 
 
-object-fit:cover;
+object-fit:contain;
 
 
 border:3px solid var(--orange);
@@ -1922,44 +2109,56 @@ border:3px solid var(--orange);
 border-radius:15px;
 
 
-}
-
-
-
-.license-data{
-
-
-display:grid;
-
-
-gap:15px;
+background:#000;
 
 
 }
 
 
 
-.license-data div{
+
+.license-info{
 
 
-background:rgba(0,0,0,.7);
+display:flex;
 
 
-border-left:4px solid var(--orange);
+flex-direction:column;
+
+
+gap:18px;
+
+
+}
+
+
+
+.license-item{
+
+
+background:
+
+rgba(0,0,0,.75);
+
+
+
+border-left:
+
+4px solid var(--orange);
+
 
 
 padding:20px;
 
 
-min-width:300px;
+min-width:330px;
 
 
 }
 
 
 
-
-.license-data label{
+.license-item label{
 
 
 display:block;
@@ -1975,7 +2174,7 @@ font-size:14px;
 
 
 
-.license-data strong{
+.license-item strong{
 
 
 font-size:25px;
@@ -1985,13 +2184,17 @@ font-size:25px;
 
 
 
-.ready{
+
+.truck-box{
 
 
-margin-top:40px;
+margin-top:30px;
 
 
-background:var(--orange);
+background:
+
+var(--orange);
+
 
 
 padding:20px;
@@ -2003,13 +2206,14 @@ border-radius:15px;
 text-align:center;
 
 
-font-size:28px;
+font-size:30px;
 
 
 font-weight:bold;
 
 
 }
+
 
 
 
@@ -2027,19 +2231,19 @@ KONTAKT
 display:grid;
 
 
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:
+
+repeat(2,1fr);
 
 
-gap:20px;
+gap:25px;
 
 
 }
 
 
 
-
-
-.contact-box{
+.contact-card{
 
 
 display:flex;
@@ -2051,19 +2255,22 @@ align-items:center;
 gap:25px;
 
 
-background:rgba(0,0,0,.7);
-
-
-border:1px solid var(--orange);
-
-
-border-radius:15px;
-
-
 padding:30px;
 
 
-font-size:35px;
+background:
+
+rgba(0,0,0,.7);
+
+
+
+border:
+
+1px solid var(--orange);
+
+
+
+border-radius:18px;
 
 
 }
@@ -2071,8 +2278,17 @@ font-size:35px;
 
 
 
+.contact-icon{
 
-.contact-box label{
+
+font-size:45px;
+
+
+}
+
+
+
+.contact-card label{
 
 
 display:block;
@@ -2081,26 +2297,24 @@ display:block;
 color:var(--gold);
 
 
-font-size:15px;
+}
+
+
+
+.contact-card strong{
+
+
+font-size:23px;
 
 
 }
 
 
 
-.contact-box strong{
-
-
-font-size:22px;
-
-
-}
 
 
 
-
-
-.discord{
+.discord-btn{
 
 
 display:block;
@@ -2109,10 +2323,17 @@ display:block;
 margin:50px auto 0;
 
 
+padding:20px 55px;
+
+
 background:var(--orange);
 
 
+
 border:none;
+
+
+border-radius:50px;
 
 
 color:white;
@@ -2122,12 +2343,6 @@ font-size:22px;
 
 
 font-weight:bold;
-
-
-padding:20px 55px;
-
-
-border-radius:50px;
 
 
 cursor:pointer;
@@ -2140,17 +2355,18 @@ transition:.3s;
 
 
 
-.discord:hover{
+.discord-btn:hover{
 
 
-transform:scale(1.1);
+transform:scale(1.08);
 
 
-box-shadow:0 0 35px var(--orange);
+box-shadow:
+
+0 0 35px var(--orange);
 
 
 }
-
 
 
 
@@ -2178,11 +2394,11 @@ grid-template-columns:1fr;
 }
 
 
-
 }
 
-</style>
 
+
+</style>
 
 
 
@@ -2237,7 +2453,9 @@ btn.classList.remove("active");
 
 if(button){
 
+
 button.classList.add("active");
+
 
 }
 
