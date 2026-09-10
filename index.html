@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#c94c16" />
+  <meta name="description" content="Bewerbungswebsite von Jeff Jeremain als Lagerlogistiker." />
+  <title>Jeff Jeremain – Bewerbung als Lagerlogistiker</title>
+
+  <style>
+    :root{
+      --orange:#d65a1d;
+      --orange-dark:#a63c13;
+      --red:#a9241a;
+      --cream:#e5d3a4;
+      --paper:#c9b987;
+      --yellow:#e49a13;
+      --ink:#191c1a;
+      --ink-soft:#2e312d;
+      --green:#3f5034;
+      --line:#ead7a2;
+      --shadow:#0d0f0d;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      color:var(--cream);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255,192,88,.11), transparent 28%),
+        radial-gradient(circle at 80% 75%, rgba(229,110,31,.09), transparent 30%),
+        #111412;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Arial Narrow", Arial, sans-serif;
+      letter-spacing:.02em;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      pointer-events:none;
+      opacity:.22;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0 1px, transparent 1px 4px),
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,.12) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 75% 42%, rgba(0,0,0,.55) 0 1px, transparent 1.5px);
+      background-size:auto, 19px 23px, 27px 31px;
+      mix-blend-mode:overlay;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .shell{
+      width:min(calc(100% - 28px),var(--max));
+      margin:0 auto;
+      padding:18px 0 36px;
+    }
+
+    .poster{
+      position:relative;
+      overflow:hidden;
+      border:3px solid #171a17;
+      border-radius:18px;
+      background:
+        linear-gradient(rgba(255,255,255,.02),rgba(0,0,0,.08)),
+        linear-gradient(180deg,#d94e1c 0%,#e27b20 42%,#d67a21 69%,#222922 69.2%,#161a17 100%);
+      box-shadow:
+        0 0 0 5px #c39a4d,
+        0 0 0 8px #141713,
+        0 28px 80px rgba(0,0,0,.5);
+    }
+
+    .poster::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      opacity:.28;
+      background:
+        repeating-linear-gradient(-5deg, transparent 0 46px, rgba(255,236,189,.2) 47px 49px, transparent 50px 95px),
+        radial-gradient(circle at 15% 30%, rgba(0,0,0,.3) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 70% 15%, rgba(255,255,255,.18) 0 1px, transparent 1.5px);
+      background-size:auto, 15px 19px, 23px 29px;
+      mix-blend-mode:multiply;
+    }
+
+    header{
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns:1fr auto;
+      align-items:center;
+      gap:18px;
+      padding:22px 24px 6px;
+    }
+
+    .stamp{
+      display:inline-block;
+      padding:11px 17px 9px;
+      border:4px solid var(--ink);
+      border-radius:11px;
+      background:#1c211d;
+      color:#f1dfb3;
+      font-size:clamp(.85rem,2vw,1.15rem);
+      line-height:1;
+      text-transform:uppercase;
+      transform:rotate(-3deg);
+      box-shadow:inset 0 0 0 2px #b68b47, 5px 6px 0 rgba(0,0,0,.25);
+    }
+
+    .badge{
+      width:125px;
+      aspect-ratio:1;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      border-radius:50%;
+      background:#1a1e1b;
+      color:#ecd8a2;
+      border:5px solid #ad8445;
+      outline:3px solid #1a1e1b;
+      font-size:.78rem;
+      line-height:1.05;
+      text-transform:uppercase;
+      transform:rotate(5deg);
+      box-shadow:inset 0 0 0 3px rgba(229,211,164,.2);
+    }
+
+    .badge strong{
+      display:block;
+      color:#e68125;
+      font-size:2.35rem;
+      line-height:.9;
+      text-shadow:2px 2px 0 #6e1d13;
+    }
+
+    .hero{
+      position:relative;
+      z-index:2;
+      text-align:center;
+      padding:0 22px 28px;
+    }
+
+    .kicker{
+      margin:8px 0 3px;
+      color:#302b1f;
+      font-size:clamp(1rem,2vw,1.4rem);
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+
+    h1{
+      margin:0 auto;
+      max-width:1000px;
+      font-size:clamp(3.4rem,10vw,8.2rem);
+      line-height:.76;
+      text-transform:uppercase;
+      letter-spacing:-.035em;
+      color:#e8d8ac;
+      -webkit-text-stroke:2px #171a17;
+      text-shadow:
+        4px 4px 0 #171a17,
+        8px 8px 0 #8f1f18,
+        12px 12px 0 rgba(17,20,18,.9);
+    }
+
+    h1 span{
+      display:block;
+      margin-top:.16em;
+      color:#e7d6a5;
+    }
+
+    .ribbon{
+      position:relative;
+      display:inline-block;
+      margin:22px auto 4px;
+      padding:10px 30px 8px;
+      background:var(--red);
+      color:#f0d9a4;
+      border:3px solid #191b18;
+      box-shadow:0 5px 0 #151815;
+      transform:rotate(-1.5deg);
+      text-transform:uppercase;
+      font-size:clamp(1rem,3vw,1.55rem);
+      letter-spacing:.06em;
+    }
+
+    .ribbon::before,.ribbon::after{
+      content:"★";
+      margin:0 12px;
+      color:#edc66e;
+    }
+
+    .warehouse-art{
+      position:relative;
+      z-index:2;
+      width:min(92%,900px);
+      margin:3px auto -6px;
+      filter:drop-shadow(0 15px 10px rgba(0,0,0,.4));
+    }
+
+    .warehouse-art svg{display:block;width:100%;height:auto}
+
+    .content{
+      position:relative;
+      z-index:3;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:18px;
+      padding:18px 22px 26px;
+      background:
+        linear-gradient(rgba(12,15,13,.84),rgba(12,15,13,.93)),
+        repeating-linear-gradient(90deg,transparent 0 23px,rgba(255,255,255,.025) 24px 25px);
+      border-top:5px solid #111411;
+    }
+
+    .panel{
+      position:relative;
+      background:#202521;
+      border:3px solid #0f120f;
+      outline:2px solid #a77f42;
+      border-radius:10px;
+      padding:22px;
+      box-shadow:8px 8px 0 rgba(0,0,0,.26);
+    }
+
+    .panel h2{
+      margin:0 0 16px;
+      font-size:clamp(1.7rem,4vw,3rem);
+      line-height:.95;
+      text-transform:uppercase;
+      color:#efdca8;
+      text-shadow:3px 3px 0 #111;
+    }
+
+    .panel h2 em{
+      color:#e07821;
+      font-style:normal;
+    }
+
+    .application{
+      font-family:Arial,Helvetica,sans-serif;
+      font-weight:700;
+      letter-spacing:0;
+      color:#d7caa8;
+      font-size:1.05rem;
+      line-height:1.65;
+    }
+
+    .application strong{color:#f0d8a1}
+
+    .facts{
+      display:grid;
+      gap:10px;
+    }
+
+    .fact{
+      display:grid;
+      grid-template-columns:115px 1fr;
+      gap:12px;
+      align-items:center;
+      padding:12px 14px;
+      border:2px solid #131612;
+      background:#d08a29;
+      color:#151713;
+      box-shadow:inset 0 0 0 2px rgba(240,214,158,.22);
+      transform:skewX(-1deg);
+    }
+
+    .fact:nth-child(even){background:#b94d21;color:#f1dfb0}
+
+    .fact .label{
+      font-size:.83rem;
+      text-transform:uppercase;
+      opacity:.9;
+    }
+
+    .fact .value{
+      font-family:Arial,Helvetica,sans-serif;
+      font-weight:900;
+      letter-spacing:0;
+      overflow-wrap:anywhere;
+    }
+
+    .cta-row{
+      position:relative;
+      z-index:3;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      padding:0 22px 24px;
+      background:#111411;
+    }
+
+    .cta{
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      text-align:center;
+      padding:14px 18px;
+      border:3px solid #0b0d0b;
+      outline:2px solid #a47a3a;
+      background:#b3271c;
+      color:#f0dca9;
+      text-transform:uppercase;
+      font-size:1.08rem;
+      box-shadow:5px 5px 0 #050605;
+      transition:.2s ease;
+    }
+
+    .cta.secondary{background:#d48621;color:#171916}
+
+    .cta:hover{
+      transform:translateY(-2px);
+      filter:brightness(1.08);
+      box-shadow:7px 8px 0 #050605;
+    }
+
+    .cta svg{width:25px;height:25px;flex:0 0 auto}
+
+    footer{
+      position:relative;
+      z-index:3;
+      background:#111411;
+      border-top:1px dashed #b59050;
+      padding:17px 22px 20px;
+      text-align:center;
+      color:#9f936f;
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:.82rem;
+    }
+
+    .small-note{
+      width:min(calc(100% - 20px),900px);
+      margin:22px auto 0;
+      color:#a9a18d;
+      text-align:center;
+      font:600 .85rem/1.5 Arial,Helvetica,sans-serif;
+    }
+
+    @media (max-width:760px){
+      .shell{width:min(calc(100% - 16px),var(--max));padding-top:9px}
+      header{padding:16px 15px 4px}
+      .badge{width:95px;font-size:.63rem}
+      .badge strong{font-size:1.8rem}
+      .hero{padding-inline:12px}
+      h1{-webkit-text-stroke:1.4px #171a17;text-shadow:3px 3px 0 #171a17,6px 6px 0 #8f1f18,9px 9px 0 rgba(17,20,18,.9)}
+      .ribbon{padding-inline:12px}
+      .ribbon::before,.ribbon::after{margin:0 5px}
+      .content{grid-template-columns:1fr;padding:16px 14px 20px}
+      .cta-row{grid-template-columns:1fr;padding:0 14px 20px}
+      .fact{grid-template-columns:90px 1fr}
+    }
+
+    @media (max-width:430px){
+      header{grid-template-columns:1fr auto}
+      .stamp{font-size:.72rem;padding:9px 10px}
+      .badge{width:78px}
+      .badge strong{font-size:1.45rem}
+      .panel{padding:18px 15px}
+      .fact{grid-template-columns:1fr;gap:2px}
+    }
+
+    @media print{
+      body{background:white}
+      .shell{width:100%;padding:0}
+      .poster{box-shadow:none;border-radius:0}
+      .cta-row{display:none}
+      .small-note{display:none}
+    }
+  </style>
+</head>
+
+<body>
+  <main class="shell">
+    <section class="poster" aria-label="Bewerbungswebsite von Jeff Jeremain">
+
+      <header>
+        <div class="stamp">Bewerbung<br>als Lagerlogistiker</div>
+        <div class="badge">
+          Profil
+          <strong>36</strong>
+          Jahre
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="kicker">Jeff Jeremain</div>
+        <h1>
+          Lager
+          <span>Logistik</span>
+        </h1>
+
+        <div class="ribbon">Bewerbung für eine Position im Lager</div>
+      </section>
+
+      <!-- Originale, rein dekorative SVG-Grafik im Retro-Industrie-Stil.
+           Keine Inhalte wurden aus der Bildvorlage übernommen. -->
+      <div class="warehouse-art" aria-hidden="true">
+        <svg viewBox="0 0 1000 330" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#db7320"/>
+              <stop offset="1" stop-color="#cf8b2d"/>
+            </linearGradient>
+          </defs>
+
+          <path d="M0 205 L120 162 L210 176 L300 132 L398 177 L510 137 L628 175 L730 128 L845 172 L1000 137 L1000 330 L0 330Z"
+                fill="#32402f" opacity=".86"/>
+
+          <g fill="#1c241e">
+            <rect x="40" y="185" width="55" height="115"/>
+            <rect x="105" y="166" width="75" height="134"/>
+            <rect x="190" y="200" width="55" height="100"/>
+            <rect x="760" y="170" width="72" height="130"/>
+            <rect x="842" y="193" width="50" height="107"/>
+            <rect x="900" y="160" width="68" height="140"/>
+          </g>
+
+          <g fill="#d39b3a" opacity=".75">
+            <rect x="57" y="203" width="8" height="15"/><rect x="73" y="203" width="8" height="15"/>
+            <rect x="124" y="186" width="9" height="15"/><rect x="144" y="186" width="9" height="15"/>
+            <rect x="787" y="193" width="10" height="16"/><rect x="807" y="193" width="10" height="16"/>
+            <rect x="921" y="185" width="10" height="16"/><rect x="942" y="185" width="10" height="16"/>
+          </g>
+
+          <!-- warehouse -->
+          <g stroke="#161916" stroke-width="8">
+            <path d="M230 175 L420 108 L610 175 V286 H230Z" fill="#d8c58e"/>
+            <path d="M210 180 L420 90 L630 180" fill="none"/>
+            <rect x="274" y="200" width="118" height="86" fill="#2a302a"/>
+            <rect x="446" y="201" width="118" height="85" fill="#2a302a"/>
+            <path d="M420 108 V286" />
+          </g>
+
+          <!-- boxes -->
+          <g stroke="#171a17" stroke-width="5">
+            <rect x="640" y="211" width="78" height="72" fill="#b77828"/>
+            <rect x="707" y="228" width="83" height="55" fill="#d29739"/>
+            <rect x="655" y="169" width="70" height="45" fill="#c58d38"/>
+          </g>
+
+          <!-- forklift -->
+          <g stroke="#151815" stroke-width="7" stroke-linejoin="round">
+            <path d="M420 244 H585 L626 281 H420Z" fill="#b22a1e"/>
+            <rect x="476" y="183" width="83" height="61" fill="#bc3b24"/>
+            <path d="M490 184 L523 143 H559 V184" fill="#d9c48e"/>
+            <path d="M561 145 V271" fill="none"/>
+            <path d="M570 151 H606 V266 H635" fill="none"/>
+            <circle cx="463" cy="283" r="28" fill="#202520"/>
+            <circle cx="568" cy="283" r="28" fill="#202520"/>
+            <circle cx="463" cy="283" r="10" fill="#c08a43"/>
+            <circle cx="568" cy="283" r="10" fill="#c08a43"/>
+          </g>
+
+          <path d="M0 299 H1000" stroke="#141713" stroke-width="14"/>
+          <path d="M0 315 H1000" stroke="#d18124" stroke-width="5" stroke-dasharray="40 18"/>
+        </svg>
+      </div>
+
+      <section class="content">
+        <article class="panel">
+          <h2>Bewerbung als <em>Lagerlogistiker</em></h2>
+          <div class="application">
+            <p>
+              Mein Name ist <strong>Jeff Jeremain</strong> und ich bewerbe mich
+              um eine Position als <strong>Lagerlogistiker</strong>.
+            </p>
+            <br>
+            <p>
+              Auf dieser Seite finden Sie meine angegebenen persönlichen
+              Kontaktdaten kompakt und übersichtlich zusammengefasst.
+            </p>
+          </div>
+        </article>
+
+        <aside class="panel">
+          <h2>Meine <em>Daten</em></h2>
+          <div class="facts">
+            <div class="fact">
+              <div class="label">Name</div>
+              <div class="value">Jeff Jeremain</div>
+            </div>
+            <div class="fact">
+              <div class="label">Alter</div>
+              <div class="value">36 Jahre</div>
+            </div>
+            <div class="fact">
+              <div class="label">Visum</div>
+              <div class="value">28</div>
+            </div>
+            <div class="fact">
+              <div class="label">Adresse</div>
+              <div class="value">Bride Street, 7294</div>
+            </div>
+            <div class="fact">
+              <div class="label">Telefon</div>
+              <div class="value">6029103965</div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <div class="cta-row">
+        <a class="cta" href="tel:6029103965" aria-label="Jeff Jeremain anrufen">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.65 2.62a2 2 0 0 1-.45 2.11L8.04 9.72a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.84.31 1.72.53 2.62.65A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          6029103965 anrufen
+        </a>
+
+        <a class="cta secondary" href="#daten" onclick="document.querySelector('.facts').scrollIntoView({behavior:'smooth'}); return false;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z"/>
+            <path d="M12 7v5l3 2"/>
+          </svg>
+          Kontaktdaten ansehen
+        </a>
+      </div>
+
+      <footer id="daten">
+        Jeff Jeremain · Bewerbung als Lagerlogistiker · Bride Street, 7294 · Tel. 6029103965
+      </footer>
+    </section>
+
+    <p class="small-note">
+      Die Gestaltung orientiert sich ausschließlich am Retro-/Industrie-Stil der bereitgestellten Vorlage.
+      Persönliche oder geschäftliche Inhalte der Vorlage wurden nicht übernommen.
+    </p>
+  </main>
+</body>
+</html>
